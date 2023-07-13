@@ -2,11 +2,12 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;
 import crafttweaker.oredict.IOreDict;
 import crafttweaker.oredict.IOreDictEntry;
-import loottweaker.LootTweaker;
-import loottweaker.vanilla.loot.LootTable;
-import loottweaker.vanilla.loot.LootPool;
-import loottweaker.vanilla.loot.Conditions;
-import loottweaker.vanilla.loot.Functions;
+import mods.roots.Mortar;
+import mods.atum.Quern;
+import mods.enderio.SagMill;
+import mods.appliedenergistics2.Grinder;
+import mods.ic2.Macerator;
+
 
 
 //Stuff not hidden from JEI using the ingame Hide menu
@@ -22,16 +23,113 @@ val jeiRemove = [
     <forestry:gear_tin>,
     <enderio:item_material:9>,
     <enderio:item_material:10>,
+    <enderio:item_material:21>,
     <railcraft:gear:0>,
     <railcraft:gear:1>,
     <railcraft:gear:2>,
     <railcraft:gear:3>,
     <railcraft:gear:4>,
-    <railcraft:gear:5>
+    <railcraft:gear:5>,
+    <ic2:bronze_sword>,
+    <ic2:bronze_pickaxe>,
+    <ic2:bronze_axe>,
+    <ic2:bronze_hoe>,
+    <ic2:bronze_shovel>,
+    <ic2:bronze_helmet>,
+    <ic2:bronze_chestplate>,
+    <ic2:bronze_leggings>,
+    <ic2:bronze_boots>,
+    <atum:emmer_dough>,
+    <atum:emmer_flour>,
+    <atum:emmer_bread>,
+    <forestry:bronze_pickaxe>,
+    <forestry:bronze_shovel>,
+    <roots:flour>,
+    <forestry:crated.natura.materials.1>,
+    <forestry:crated.natura.materials.2>,
+    <natura:materials:1>,
+    <natura:materials:2>
 ] as IItemStack[];
 
 for item in jeiRemove {
     mods.jei.JEI.hide(item);
+}
+
+
+
+//UnifyFlourProject
+val uniFlour = <harvestcraft:flouritem>;
+
+//Remove old flour
+val flourRemove = [
+    <natura:materials:1>,
+    <natura:materials:2>,
+    <enderio:item_material:21>
+] as IItemStack[];
+
+for item in flourRemove {
+    recipes.remove(item);
+}
+
+//Replace mortar flour
+Mortar.removeRecipe(<roots:flour>);
+Mortar.addRecipe("wheatFlourMortar", uniFlour, [<ore:cropWheat>]);
+Mortar.addRecipe("potatoFlourMortar", uniFlour, [<ore:cropPotato>]);
+Mortar.addRecipe("riceFlourMortar", uniFlour, [<ore:cropRice>]);
+Mortar.addRecipe("ryeFlourMortar", uniFlour, [<ore:cropRye>]);
+Mortar.addRecipe("oatsFlourMortar", uniFlour, [<ore:cropOats>]);
+Mortar.addRecipe("barleyFlourMortar", uniFlour, [<ore:cropBarley>]);
+
+//Replace Atum flour
+mods.atum.Quern.removeRecipe("atum:emmer_wheat");
+mods.atum.Quern.addRecipe(<atum:emmer>, uniFlour, 2);
+furnace.remove(<atum:emmer_bread>);
+
+//Replace SAG Mill flour
+mods.enderio.SagMill.removeRecipe(<minecraft:wheat>);
+mods.enderio.SagMill.removeRecipe(<natura:materials>);
+mods.enderio.SagMill.addRecipe([uniFlour], [100], <ore:cropPotato>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:riceseeditem>], [100, 20], <ore:cropRice>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:oatsseeditem>], [100, 20], <ore:cropOats>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:ryeseeditem>], [100, 20], <ore:cropRye>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:barleyseeditem>], [100, 20], <ore:cropBarley>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <minecraft:wheat_seeds>], [100, 20], <ore:cropWheat>, "MULTIPLY_OUTPUT", 1000);
+
+//Replace AE2 Grinder flour
+Grinder.removeRecipe(<minecraft:wheat>);
+Grinder.addRecipe(uniFlour * 2, <ore:cropWheat>, 4, <minecraft:wheat_seeds>, 0.2);
+Grinder.addRecipe(uniFlour * 2, <ore:cropBarley>, 4, <harvestcraft:barleyseeditem>, 0.2);
+Grinder.addRecipe(uniFlour * 2, <ore:cropOats>, 4, <harvestcraft:oatsseeditem>, 0.2);
+Grinder.addRecipe(uniFlour * 2, <ore:cropRye>, 4, <harvestcraft:ryeseeditem>, 0.2);
+Grinder.addRecipe(uniFlour * 2, <ore:cropRice>, 4, <harvestcraft:riceseeditem>, 0.2);
+Grinder.addRecipe(uniFlour, <ore:cropPotato>, 4);
+
+//Add IC2 Flour
+mods.ic2.Macerator.addRecipe(uniFlour * 2, <ore:cropWheat>);
+mods.ic2.Macerator.addRecipe(uniFlour * 2, <ore:cropRye>);
+mods.ic2.Macerator.addRecipe(uniFlour * 2, <ore:cropOats>);
+mods.ic2.Macerator.addRecipe(uniFlour * 2, <ore:cropBarley>);
+mods.ic2.Macerator.addRecipe(uniFlour * 2, <ore:cropRice>);
+mods.ic2.Macerator.addRecipe(uniFlour, <ore:cropPotato>);
+
+
+//Remove some bronze stuff from being crafted
+val bronzeGear = [
+    <ic2:bronze_sword>,
+    <ic2:bronze_pickaxe>,
+    <ic2:bronze_axe>,
+    <ic2:bronze_hoe>,
+    <ic2:bronze_shovel>,
+    <ic2:bronze_helmet>,
+    <ic2:bronze_chestplate>,
+    <ic2:bronze_leggings>,
+    <ic2:bronze_boots>,
+    <forestry:bronze_pickaxe>,
+    <forestry:bronze_shovel>
+] as IItemStack[];
+
+for item in bronzeGear {
+    recipes.remove(item);
 }
 
 
@@ -197,14 +295,3 @@ recipes.addShaped("emeraldGear",<thermalfoundation:material:27>,
     [emrld, feGear, emrld],
     [null, emrld, null]
 ]);
-
-
-
-//Replace copper and silver ingots from Mysitcal World Hut loottable (chests)
-val mwc = LootTweaker.getTable("mysticalworld:chests/hut");
-val mwcGems = mwc.getPool("gems");
-mwcGems.removeEntry("mysticalworld:copper_ingot");
-mwcGems.removeEntry("mysticalworld:silver_ingot");
-
-mwcGems.addItemEntry(<thermalfoundation:material:128>, 20, "replacementCopperMWC-Hut");
-mwcGems.addItemEntry(<thermalfoundation:material:130>, 8, "replacementSilverMWC-Hut");
