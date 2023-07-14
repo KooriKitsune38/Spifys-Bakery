@@ -8,8 +8,6 @@ import mods.enderio.SagMill;
 import mods.appliedenergistics2.Grinder;
 import mods.ic2.Macerator;
 
-
-
 //Hide from JEI and remove recipe (for items not done elsewhere)
 val jeiRemove = [
     <appliedenergistics2:material:40>,
@@ -33,23 +31,58 @@ val jeiRemove = [
     <forestry:crated.natura.materials.2>,
 ] as IItemStack[];
 
-for item in jeiRemove {
-    mods.jei.JEI.removeAndHide(item);
-}
-
-//Just Hide from JEI
-val jeiHide = [
-    <atum:emmer_bread>,
-    <roots:flour>
+// Torches
+val removeTorch = [
+    <minecraft:torch>,
+    <realistictorches:torch_lit>,
+    <realistictorches:matchbox>,
+    <atum:palm_torch>,
+    <atum:deadwood_torch>,
+    <atum:limestone_torch>,
+    <atum:bone_torch>,
+    <atum:pharaoh_torch>,
+    <tconstruct:stone_torch>,
+    <realistictorches:glowstone_crystal>,
+    <realistictorches:glowstone_paste>
 ] as IItemStack[];
 
-for item in jeiHide {
-    mods.jei.JEI.hide(item);
-}
+// Bronze Gear
+val bronzeGear = [
+    <ic2:bronze_sword>,
+    <ic2:bronze_pickaxe>,
+    <ic2:bronze_axe>,
+    <ic2:bronze_hoe>,
+    <ic2:bronze_shovel>,
+    <ic2:bronze_helmet>,
+    <ic2:bronze_chestplate>,
+    <ic2:bronze_leggings>,
+    <ic2:bronze_boots>,
+    <forestry:bronze_pickaxe>,
+    <forestry:bronze_shovel>
+] as IItemStack[];
 
+// Remove old flour
+val flourRemove = [
+    <atum:emmer_dough>,
+    <atum:emmer_flour>,
+    <natura:materials:1>,
+    <natura:materials:2>,
+    <enderio:item_material:21>
+] as IItemStack[];
 
+//Remove some gear types from being crafted
+val gears = [
+    <thermalfoundation:material:23>,
+    <thermalfoundation:material:24>,
+    <thermalfoundation:material:25>,
+    <thermalfoundation:material:26>,
+    <thermalfoundation:material:27>,
+    <thermalfoundation:material:256>,
+    <thermalfoundation:material:257>,
+    <thermalfoundation:material:291>,
+] as IItemStack[];
 
-//Recipes that need to be removed by Name
+// Recipes that need to be removed by Name
 val removeByName = [
     "enderio:gear_stone_upgrade",
     "enderio:gear_stone",
@@ -61,31 +94,63 @@ val removeByName = [
     "harvestcraft:minecraft_bread"
 ] as string[];
 
+var jeiRemoveAll = [
+    jeiRemove,
+    removeTorch,
+    bronzeGear,
+    flourRemove
+] as IItemStack[][];
+
+val jeiHide = [
+    <atum:emmer_bread>,
+    <roots:flour>
+] as IItemStack[];
+
+// Just Hide from JEI
+for item in jeiHide {
+    mods.jei.JEI.hide(item);
+}
+
+// Remove All
+for itemStack in jeiRemoveAll {
+    for item in itemStack {
+        mods.jei.JEI.removeAndHide(item);
+    }
+}
+
+// Remove by Name
 for item in removeByName {
     recipes.removeByRecipeName(item);
 }
 
-
-
-//UnifyFlourProject v2
-val uniFlour = <harvestcraft:flouritem>;
-
-//Unify Bread detour
-furnace.remove(<minecraft:bread>);
-furnace.addRecipe(<minecraft:bread>, <harvestcraft:doughitem>, 0.35);
-
-//Remove old flour
-val flourRemove = [
-    <atum:emmer_dough>,
-    <atum:emmer_flour>,
-    <natura:materials:1>,
-    <natura:materials:2>,
-    <enderio:item_material:21>
-] as IItemStack[];
-
-for item in flourRemove {
-    mods.jei.JEI.removeAndHide(item);
+// Remove Recipe
+for item in gears {
+    recipes.remove(item);
 }
+//Remove Torch
+recipes.remove(<realistictorches:torch_unlit>);
+
+// Materials Variables
+// Torches
+val coal = <minecraft:coal>;
+val stick = <ore:stickWood>;
+// Gears
+val cobble = <ore:cobblestone>;
+val cu = <ore:ingotCopper>;
+val cuPlate = <ore:plateCopper>;
+val tin = <ore:ingotTin>;
+val tinPlate = <ore:plateTin>;
+val bronze = <ore:ingotBronze>;
+val bronzePlate = <ore:plateBronze>;
+val gold = <ore:ingotGold>;
+val goldPlate = <ore:plateGold>;
+val dia = <ore:gemDiamond>;
+val iron = <ore:ingotIron>;
+val emrld = <ore:gemEmerald>;
+val wdGear = <ore:gearWood>;
+val rckGear = <ore:gearStone>;
+val feGear = <ore:gearIron>;
+val fePlate = <ore:plateIron>;
 
 //Flour arrays
 val cropFlour = [
@@ -130,6 +195,20 @@ val cropFlourNoSeed = [
     <ore:cropAlmond>
 ] as IOreDictEntry[];
 
+// Add Torch Recipe
+recipes.addShaped("unlitTorch",<realistictorches:torch_unlit>,
+[
+    [coal],
+    [stick]
+]);
+
+//UnifyFlourProject v2
+val uniFlour = <harvestcraft:flouritem>;
+
+//Unify Bread detour
+furnace.remove(<minecraft:bread>);
+furnace.addRecipe(<minecraft:bread>, <harvestcraft:doughitem>, 0.35);
+
 //Replace flours
 mods.atum.Quern.removeRecipe("atum:emmer_wheat");
 mods.atum.Quern.addRecipe(<atum:emmer>, uniFlour, 2);
@@ -162,63 +241,7 @@ for i, item in cropFlourNoSeed {
 }
 
 
-
-//Remove some bronze stuff from being crafted
-val bronzeGear = [
-    <ic2:bronze_sword>,
-    <ic2:bronze_pickaxe>,
-    <ic2:bronze_axe>,
-    <ic2:bronze_hoe>,
-    <ic2:bronze_shovel>,
-    <ic2:bronze_helmet>,
-    <ic2:bronze_chestplate>,
-    <ic2:bronze_leggings>,
-    <ic2:bronze_boots>,
-    <forestry:bronze_pickaxe>,
-    <forestry:bronze_shovel>
-] as IItemStack[];
-
-for item in bronzeGear {
-    mods.jei.JEI.removeAndHide(item);
-}
-
-
-
-//Remove some gear types from being crafted
-val gears = [
-    <thermalfoundation:material:23>,
-    <thermalfoundation:material:24>,
-    <thermalfoundation:material:25>,
-    <thermalfoundation:material:26>,
-    <thermalfoundation:material:27>,
-    <thermalfoundation:material:256>,
-    <thermalfoundation:material:257>,
-    <thermalfoundation:material:291>,
-] as IItemStack[];
-
-for item in gears {
-    recipes.remove(item);
-}
-
-//Replace wierd gear recipes with only 1 type (updgrade from last gear type)
-val stick = <ore:stickWood>;
-val cobble = <ore:cobblestone>;
-val cu = <ore:ingotCopper>;
-val cuPlate = <ore:plateCopper>;
-val tin = <ore:ingotTin>;
-val tinPlate = <ore:plateTin>;
-val bronze = <ore:ingotBronze>;
-val bronzePlate = <ore:plateBronze>;
-val gold = <ore:ingotGold>;
-val goldPlate = <ore:plateGold>;
-val dia = <ore:gemDiamond>;
-val iron = <ore:ingotIron>;
-val emrld = <ore:gemEmerald>;
-val wdGear = <ore:gearWood>;
-val rckGear = <ore:gearStone>;
-val feGear = <ore:gearIron>;
-val fePlate = <ore:plateIron>;
-
+// Add Gear Recipes
 recipes.addShaped("stoneGear",<thermalfoundation:material:23>,
 [
     [null, cobble, null],
