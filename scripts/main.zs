@@ -88,12 +88,12 @@ furnace.remove(<atum:emmer_bread>);
 //Replace SAG Mill flour
 mods.enderio.SagMill.removeRecipe(<minecraft:wheat>);
 mods.enderio.SagMill.removeRecipe(<natura:materials>);
-mods.enderio.SagMill.addRecipe([uniFlour], [100], <ore:cropPotato>, "MULTIPLY_OUTPUT", 1000);
-mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:riceseeditem>], [100, 20], <ore:cropRice>, "MULTIPLY_OUTPUT", 1000);
-mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:oatsseeditem>], [100, 20], <ore:cropOats>, "MULTIPLY_OUTPUT", 1000);
-mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:ryeseeditem>], [100, 20], <ore:cropRye>, "MULTIPLY_OUTPUT", 1000);
-mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:barleyseeditem>], [100, 20], <ore:cropBarley>, "MULTIPLY_OUTPUT", 1000);
-mods.enderio.SagMill.addRecipe([uniFlour * 2, <minecraft:wheat_seeds>], [100, 20], <ore:cropWheat>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour], [1.0], <ore:cropPotato>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:riceseeditem>], [1.0, 0.2], <ore:cropRice>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:oatsseeditem>], [1.0, 0.2], <ore:cropOats>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:ryeseeditem>], [1.0, 0.2], <ore:cropRye>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <harvestcraft:barleyseeditem>], [1.0, 0.2], <ore:cropBarley>, "MULTIPLY_OUTPUT", 1000);
+mods.enderio.SagMill.addRecipe([uniFlour * 2, <minecraft:wheat_seeds>], [1.0, 0.2], <ore:cropWheat>, "MULTIPLY_OUTPUT", 1000);
 
 //Replace AE2 Grinder flour
 Grinder.removeRecipe(<minecraft:wheat>);
