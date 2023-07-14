@@ -9,7 +9,6 @@ import mods.appliedenergistics2.Grinder;
 import mods.ic2.Macerator;
 
 
-
 //Stuff not hidden from JEI using the ingame Hide menu
 val jeiRemove = [
     <appliedenergistics2:material:40>,
