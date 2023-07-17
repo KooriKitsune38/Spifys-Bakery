@@ -33,7 +33,6 @@ val jeiRemove = [
 
 // Torches
 val removeTorch = [
-    <minecraft:torch>,
     <realistictorches:torch_lit>,
     <realistictorches:matchbox>,
     <atum:palm_torch>,
@@ -42,7 +41,6 @@ val removeTorch = [
     <atum:bone_torch>,
     <atum:pharaoh_torch>,
     <tconstruct:stone_torch>,
-    <realistictorches:glowstone_crystal>,
     <realistictorches:glowstone_paste>
 ] as IItemStack[];
 
@@ -70,6 +68,13 @@ val flourRemove = [
     <enderio:item_material:21>
 ] as IItemStack[];
 
+val jeiRemoveAll = [
+    jeiRemove,
+    removeTorch,
+    bronzeGear,
+    flourRemove
+] as IItemStack[][];
+
 //Remove some gear types from being crafted
 val gears = [
     <thermalfoundation:material:23>,
@@ -82,6 +87,16 @@ val gears = [
     <thermalfoundation:material:291>,
 ] as IItemStack[];
 
+val rmOnlyTorchRecipe = [
+    <realistictorches:torch_unlit>,
+    <minecraft:torch>
+] as IItemStack[];
+
+val removeRecipeAll = [
+    gears,
+    rmOnlyTorchRecipe
+] as IItemStack[][];
+
 // Recipes that need to be removed by Name
 val removeByName = [
     "enderio:gear_stone_upgrade",
@@ -93,13 +108,6 @@ val removeByName = [
     "natura:common/bread",
     "harvestcraft:minecraft_bread"
 ] as string[];
-
-var jeiRemoveAll = [
-    jeiRemove,
-    removeTorch,
-    bronzeGear,
-    flourRemove
-] as IItemStack[][];
 
 val jeiHide = [
     <atum:emmer_bread>,
@@ -123,16 +131,30 @@ for item in removeByName {
     recipes.removeByRecipeName(item);
 }
 
-// Remove Recipe
-for item in gears {
-    recipes.remove(item);
+for itemStack in removeRecipeAll {
+    for item in itemStack {
+        recipes.remove(item);
+    }
 }
-//Remove Torch
-recipes.remove(<realistictorches:torch_unlit>);
 
 // Materials Variables
 // Torches
-val coal = <minecraft:coal>;
+val coalStack = [
+    <twilightforest:torchberries>,
+    <realistictorches:glowstone_crystal>
+] as IItemStack[];
+
+val coalVanilla = <ore:coalVanilla>;
+coalVanilla.add(coalStack);
+
+val coalStackUnlit = [
+    <minecraft:coal>,
+    <thermalfoundation:material:832>,
+    <thermalfoundation:material:833>
+] as IItemStack[];
+val coalUnlit = <ore:fuelCoke>;
+coalUnlit.add(coalStackUnlit);
+
 val stick = <ore:stickWood>;
 // Gears
 val cobble = <ore:cobblestone>;
@@ -196,11 +218,18 @@ val cropFlourNoSeed = [
 ] as IOreDictEntry[];
 
 // Add Torch Recipe
-recipes.addShaped("unlitTorch",<realistictorches:torch_unlit>,
+recipes.addShaped("unlitTorch",<realistictorches:torch_unlit> * 4,
 [
-    [coal],
+    [coalUnlit],
     [stick]
 ]);
+
+recipes.addShaped("vanillaTorch",<minecraft:torch> * 4,
+[
+    [coalVanilla],
+    [stick]
+]);
+
 
 //UnifyFlourProject v2
 val uniFlour = <harvestcraft:flouritem>;
