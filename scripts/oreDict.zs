@@ -41,6 +41,20 @@ val doughRemove = [
 
 
 
+//Add/remove items in torch OreDicts
+
+val torchAdd = [
+    <realistictorches:torch_lit>,
+    <realistictorches:torch_smoldering>,
+    <realistictorches:torch_unlit>
+] as IItemStack[];
+
+val torchRemove = [
+    
+] as IItemStack[];
+
+
+
 
 
 //Edit items in OreDict
@@ -59,3 +73,6 @@ for item in flourRemove {foodFlour.remove(item);}
 val foodDough = <ore:foodDough>;
 for item in doughAdd {foodDough.add(item);}
 for item in doughRemove {foodDough.remove(item);}
+val torch = <ore:torch>;
+for item in torchAdd {torch.add(item);}
+for item in torchRemove {torch.remove(item);}
