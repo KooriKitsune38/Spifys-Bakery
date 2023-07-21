@@ -393,5 +393,50 @@
     "enable_seasonal_effects": true,
     "use_tropical_seasons": true,
     "disable_crops": false
+  },
+  "atum:oasis": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": false
+  },
+  "atum:dead_oasis": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:deadwood_forest": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:dried_river": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:limestone_crags": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:limestone_mountains": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:sand_dunes": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:sand_hills": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
+  },
+  "atum:sand_plains": {
+    "enable_seasonal_effects": true,
+    "use_tropical_seasons": true,
+    "disable_crops": true
   }
 }
