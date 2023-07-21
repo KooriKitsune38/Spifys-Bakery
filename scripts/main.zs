@@ -24,6 +24,8 @@ val dustCoal = <ore:dustCoal>;
 val fuelCoke = <ore:fuelCoke>;
 //Blocks
 val wood = <ore:plankWood>;
+val slabWood = <ore:slabWood>;
+val pumpkin = <minecraft:pumpkin>;
 val glass = <ore:blockGlass>;
 val glassPane = <ore:paneGlassColorless>;
 val outdoorIron = <naturaldecormod:outdooriron>;
@@ -134,6 +136,23 @@ val recipeRemove = [
     <bibliocraft:lanterngold>,
     <rustic:lantern_wood>,
     <roots:glass_eye>,
+    //Jack O' Lanterns
+    <fairylights:light:112>,
+    <fairylights:light:113>,
+    <fairylights:light:114>,
+    <fairylights:light:115>,
+    <fairylights:light:116>,
+    <fairylights:light:117>,
+    <fairylights:light:118>,
+    <fairylights:light:119>,
+    <fairylights:light:120>,
+    <fairylights:light:121>,
+    <fairylights:light:122>,
+    <fairylights:light:123>,
+    <fairylights:light:124>,
+    <fairylights:light:125>,
+    <fairylights:light:126>,
+    <fairylights:light:127>,
     //Aether
     <aether_legacy:incubator>
 ] as IItemStack[];
@@ -262,7 +281,7 @@ recipes.addShaped("newTorchCoke", newTorchUnlit * 8,
 
 recipes.addShaped("pumpkinLitRealistic", <minecraft:lit_pumpkin>,
 [
-    [<minecraft:pumpkin>],
+    [pumpkin],
     [newTorchLit]
 ]);
 
@@ -360,6 +379,56 @@ for i, item in deskOutput {
         [newTorchLit, null, feather],
         [deskSlab[i], deskSlab[i], deskSlab[i]],
         [deskWood[i], null, deskWood[i]]
+    ]);
+}
+
+
+
+//Jack Off Lanters fix
+val jackDye = [
+    <ore:dyeBlack>,
+    <ore:dyeRed>,
+    <ore:dyeGreen>,
+    <ore:dyeBrown>,
+    <ore:dyeBlue>,
+    <ore:dyePurple>,
+    <ore:dyeCyan>,
+    <ore:dyeLightGray>,
+    <ore:dyeGray>,
+    <ore:dyePink>,
+    <ore:dyeLime>,
+    <ore:dyeYellow>,
+    <ore:dyeLightBlue>,
+    <ore:dyeMagenta>,
+    <ore:dyeOrange>,
+    <ore:dyeWhite>
+] as IOreDictEntry[];
+
+val jackOutput = [
+    <fairylights:light:112>,
+    <fairylights:light:113>,
+    <fairylights:light:114>,
+    <fairylights:light:115>,
+    <fairylights:light:116>,
+    <fairylights:light:117>,
+    <fairylights:light:118>,
+    <fairylights:light:119>,
+    <fairylights:light:120>,
+    <fairylights:light:121>,
+    <fairylights:light:122>,
+    <fairylights:light:123>,
+    <fairylights:light:124>,
+    <fairylights:light:125>,
+    <fairylights:light:126>,
+    <fairylights:light:127>
+] as IItemStack[];
+
+for i, item in jackOutput {
+    recipes.addShaped("jackOLanternNew_" + i, item * 4,
+    [
+        [null, iron, null],
+        [slabWood, jackDye[i], slabWood],
+        [newTorchLit, pumpkin, newTorchLit]
     ]);
 }
 
