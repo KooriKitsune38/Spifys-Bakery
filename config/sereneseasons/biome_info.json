@@ -5,7 +5,7 @@
     "disable_crops": false
   },
   "abyssalcraft:darklands_plains": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -20,12 +20,12 @@
     "disable_crops": false
   },
   "biomesoplenty:flower_island": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": true,
     "disable_crops": false
   },
   "biomesoplenty:mystic_grove": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -45,12 +45,12 @@
     "disable_crops": false
   },
   "minecraft:deep_ocean": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
   "biomesoplenty:ominous_woods": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -80,7 +80,7 @@
     "disable_crops": false
   },
   "biomesoplenty:coral_reef": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -115,12 +115,12 @@
     "disable_crops": false
   },
   "integrateddynamics:biome_meneglin": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
   "abyssalcraft:darklands_mountains": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -140,7 +140,7 @@
     "disable_crops": false
   },
   "minecraft:river": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -185,12 +185,12 @@
     "disable_crops": false
   },
   "biomesoplenty:kelp_forest": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
   "abyssalcraft:darklands_forest": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -205,12 +205,12 @@
     "disable_crops": false
   },
   "abyssalcraft:coralium_infested_swamp": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
   "abyssalcraft:darklands": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -225,7 +225,7 @@
     "disable_crops": false
   },
   "thaumcraft:magical_forest": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -260,7 +260,7 @@
     "disable_crops": false
   },
   "biomesoplenty:wasteland": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": true,
     "disable_crops": true
   },
@@ -285,7 +285,7 @@
     "disable_crops": false
   },
   "minecraft:ocean": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
@@ -305,7 +305,7 @@
     "disable_crops": true
   },
   "minecraft:mushroom_island_shore": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": true,
     "disable_crops": false
   },
@@ -320,7 +320,7 @@
     "disable_crops": false
   },
   "biomesoplenty:crag": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": true
   },
@@ -340,7 +340,7 @@
     "disable_crops": false
   },
   "minecraft:mushroom_island": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": true,
     "disable_crops": false
   },
@@ -380,7 +380,7 @@
     "disable_crops": false
   },
   "abyssalcraft:darklands_hills": {
-    "enable_seasonal_effects": false,
+    "enable_seasonal_effects": true,
     "use_tropical_seasons": false,
     "disable_crops": false
   },
