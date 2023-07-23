@@ -1,6 +1,6 @@
 {
   "path": "vanilla/plants/dandelion_plant.json",
-  "enabled": true,
+  "enabled": false,
   "id": "vanilla:dandelion_plant",
   "plant_name": "Dandelion",
   "seed_name": "Dandelion Seeds",

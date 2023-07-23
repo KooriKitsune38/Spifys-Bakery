@@ -1,6 +1,6 @@
 {
   "path": "vanilla/plants/allium_plant.json",
-  "enabled": true,
+  "enabled": false,
   "id": "vanilla:allium_plant",
   "plant_name": "Allium",
   "seed_name": "Allium Seeds",

@@ -1,6 +1,6 @@
 {
   "path": "vanilla/plants/orange_tulip_plant.json",
-  "enabled": true,
+  "enabled": false,
   "id": "vanilla:orange_tulip_plant",
   "plant_name": "Orange Tulip",
   "seed_name": "Orange Tulip Seeds",
