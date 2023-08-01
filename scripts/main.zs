@@ -174,6 +174,11 @@ val jeiHide = [
     <tconstruct:stone_torch>
 ] as IItemStack[];
 
+val furnaceRemove = [
+    //Vanilla torch from Damp Torch
+    <minecraft:torch>
+] as IItemStack[];
+
 //Recipes that need to be removed by Name
 val removeByName = [
     "enderio:gear_stone_upgrade",
@@ -207,6 +212,9 @@ for item in jeiHide {
 }
 for item in removeByName {
     recipes.removeByRecipeName(item);
+}
+for item in furnaceRemove {
+    furnace.remove(item);
 }
 
 
@@ -347,6 +355,10 @@ recipes.addShaped("particleCustomizerNew", <simplyjetpacks:metaitem:0>,
     [null, newTorchOre, null]
 ]);
 
+recipes.addShapedMirrored("mudBrickFlowerPotCandle", <thebetweenlands:mud_flower_pot_candle>,
+[
+    [newTorchLit,<thebetweenlands:mud_flower_pot>]
+]);
 
 
 //BiblioCraft Desk stuff
