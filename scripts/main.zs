@@ -108,10 +108,10 @@ val jeiRemove = [
     <mysticalagriculture:miners_torch>,
     <aether_legacy:ambrosium_torch>,
     //Betweenlands
-    <thebetweenlands:weedwood_shovel>,
-    <thebetweenlands:bone_shovel>,
-    <thebetweenlands:octine_shovel>,
-    <thebetweenlands:valonite_shovel>,
+    //<thebetweenlands:weedwood_shovel>,
+    //<thebetweenlands:bone_shovel>,
+    //<thebetweenlands:octine_shovel>,
+    //<thebetweenlands:valonite_shovel>,
     <thebetweenlands:items_crushed:17>,
     <thebetweenlands:sulfur_torch>,
     //BetweenLands Mortar
