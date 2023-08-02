@@ -3,7 +3,6 @@ import crafttweaker.item.IIngredient;
 import crafttweaker.oredict.IOreDict;
 import crafttweaker.oredict.IOreDictEntry;
 import mods.roots.Mortar;
-import mods.atum.Quern;
 import mods.enderio.SagMill;
 import mods.appliedenergistics2.Grinder;
 import mods.ic2.Macerator;
@@ -86,8 +85,6 @@ val jeiRemove = [
     //Flour stuff
     <forestry:crated.natura.materials.1>,
     <forestry:crated.natura.materials.2>,
-    <atum:emmer_dough>,
-    <atum:emmer_flour>,
     <natura:materials:1>,
     <natura:materials:2>,
     <enderio:item_material:21>,
@@ -108,11 +105,6 @@ val jeiRemove = [
     <energycontrol:item_component:1>,
     //Torches
     <minecraft:torch>,
-    <atum:palm_torch>,
-    <atum:deadwood_torch>,
-    <atum:limestone_torch>,
-    <atum:bone_torch>,
-    <atum:pharaoh_torch>,
     <mysticalagriculture:miners_torch>,
     <aether_legacy:ambrosium_torch>,
     //Betweenlands
@@ -121,7 +113,14 @@ val jeiRemove = [
     <thebetweenlands:octine_shovel>,
     <thebetweenlands:valonite_shovel>,
     <thebetweenlands:items_crushed:17>,
-    <thebetweenlands:sulfur_torch>
+    <thebetweenlands:sulfur_torch>,
+    //BetweenLands Mortar
+    <thebetweenlands:mortar>,
+    <thebetweenlands:pestle>,
+    <thebetweenlands:items_misc:27>,
+    <thebetweenlands:items_misc:48>,
+    <thebetweenlands:fish_bait>,
+    <thebetweenlands:items_crushed>
 ] as IItemStack[];
 
 //Just remove Recipe
@@ -167,11 +166,12 @@ val recipeRemove = [
 //Just Hide from JEI
 val jeiHide = [
     //Flour stuff
-    <atum:emmer_bread>,
     <roots:flour>,
     //Torch
     <minecraft:torch>,
-    <tconstruct:stone_torch>
+    <tconstruct:stone_torch>,
+    //Sulfur Torch
+    <thebetweenlands:sulfur_torch_extinguished>
 ] as IItemStack[];
 
 val furnaceRemove = [
@@ -192,12 +192,10 @@ val removeByName = [
 ] as string[];
 
 //Remove from mod items
-mods.atum.Quern.removeRecipe("atum:emmer_wheat");
 mods.enderio.SagMill.removeRecipe(<minecraft:wheat>);
 mods.enderio.SagMill.removeRecipe(<natura:materials>);
 Grinder.removeRecipe(<minecraft:wheat>);
 Mortar.removeRecipe(<roots:flour>);
-furnace.remove(<atum:emmer_bread>);
 mods.forestry.Carpenter.removeRecipe(<minecraft:torch>);
 
 //Yippie
@@ -226,9 +224,6 @@ for item in furnaceRemove {
 //Unify Bread detour
 furnace.remove(<minecraft:bread>);
 furnace.addRecipe(<minecraft:bread>, <harvestcraft:doughitem>, 0.35);
-
-//Replace flours
-mods.atum.Quern.addRecipe(<atum:emmer>, uniFlour, 2);
 
 //Flour arrays
 val cropFlour = [
@@ -551,3 +546,112 @@ recipes.addShaped("emeraldGear", <thermalfoundation:material:27>,
     [emrld, feGear, emrld],
     [null, emrld, null]
 ]);
+
+// BetweenLands Mortar into roots mortar
+val oreLimestones = <ore:blLimestones>;
+oreLimestones.add(
+    <thebetweenlands:limestone>,
+    <thebetweenlands:polished_limestone>
+);
+
+//Mortar Recipes "Input", "Output"
+val blMortarRecipe = {
+    //Gems
+    <thebetweenlands:aqua_middle_gem> : <thebetweenlands:items_crushed:45>,
+    <thebetweenlands:crimson_middle_gem> : <thebetweenlands:items_crushed:28>,
+    <thebetweenlands:green_middle_gem> : <thebetweenlands:items_crushed:32>,
+    //Plants
+    <thebetweenlands:items_plant_drop:0> : <thebetweenlands:items_crushed:0>,
+    <thebetweenlands:items_plant_drop:1> : <thebetweenlands:items_crushed:18>,
+    <thebetweenlands:items_plant_drop:2> : <thebetweenlands:items_crushed:4>,
+    <thebetweenlands:items_plant_drop:3> : <thebetweenlands:items_crushed:13>,
+    <thebetweenlands:items_plant_drop:4> : <thebetweenlands:items_crushed:11>,
+    <thebetweenlands:items_plant_drop:5> : <thebetweenlands:items_crushed:36>,
+    <thebetweenlands:items_plant_drop:6> : <thebetweenlands:items_crushed:29>,
+    <thebetweenlands:items_plant_drop:7> : <thebetweenlands:items_crushed:22>,
+    <thebetweenlands:items_plant_drop:8> : <thebetweenlands:items_crushed:14>,
+    <thebetweenlands:items_plant_drop:9> : <thebetweenlands:items_crushed:15>,
+    <thebetweenlands:items_plant_drop:10> : <thebetweenlands:items_crushed:23>,
+    <thebetweenlands:items_plant_drop:11> : <thebetweenlands:items_crushed:5>,
+    <thebetweenlands:items_plant_drop:12> : <thebetweenlands:items_crushed:25>,
+    <thebetweenlands:items_plant_drop:13> : <thebetweenlands:items_crushed:1>,
+    <thebetweenlands:items_plant_drop:14> : <thebetweenlands:items_crushed:26>,
+    <thebetweenlands:items_plant_drop:15> : <thebetweenlands:items_crushed:12>,
+    <thebetweenlands:items_plant_drop:16> : <thebetweenlands:items_crushed:31>,
+    <thebetweenlands:items_plant_drop:17> : <thebetweenlands:items_crushed:34>,
+    <thebetweenlands:items_plant_drop:18> : <thebetweenlands:items_crushed:6>,
+    <thebetweenlands:items_plant_drop:19> : <thebetweenlands:items_crushed:9>,
+    <thebetweenlands:items_plant_drop:20> : <thebetweenlands:items_crushed:35>,
+    <thebetweenlands:items_plant_drop:21> : <thebetweenlands:items_crushed:39>,
+    <thebetweenlands:items_plant_drop:22> : <thebetweenlands:items_crushed:40>,
+    <thebetweenlands:items_plant_drop:23> : <thebetweenlands:items_crushed:7>,
+    <thebetweenlands:items_plant_drop:24> : <thebetweenlands:items_crushed:3>,
+    <thebetweenlands:items_plant_drop:25> : <thebetweenlands:items_crushed:41>,
+    <thebetweenlands:items_plant_drop:26> : <thebetweenlands:items_crushed:8>,
+    <thebetweenlands:items_plant_drop:27> : <thebetweenlands:items_crushed:42>,
+    <thebetweenlands:items_plant_drop:28> : <thebetweenlands:items_crushed:2>,
+    <thebetweenlands:items_plant_drop:29> : <thebetweenlands:items_crushed:27>,
+    <thebetweenlands:items_plant_drop:30> : <thebetweenlands:items_crushed:38>,
+    <thebetweenlands:items_plant_drop:31> : <thebetweenlands:items_crushed:10>,
+    <thebetweenlands:items_plant_drop:32> : <thebetweenlands:items_crushed:33>,
+    <thebetweenlands:items_plant_drop:33> : <thebetweenlands:items_crushed:46>,
+    <thebetweenlands:items_plant_drop:34> : <thebetweenlands:items_crushed:47>,
+    <thebetweenlands:items_plant_drop:35> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:items_plant_drop:36> : <thebetweenlands:items_crushed:49>,
+    <thebetweenlands:items_plant_drop:37> : <thebetweenlands:items_crushed:50>,
+    <thebetweenlands:items_plant_drop:38> : <thebetweenlands:items_crushed:51>,
+    <thebetweenlands:items_plant_drop:39> : <thebetweenlands:items_crushed:53>,
+    <thebetweenlands:items_plant_drop:40> : <thebetweenlands:items_crushed:52>,
+    <thebetweenlands:items_plant_drop:41> : <thebetweenlands:items_crushed:54>,
+    <thebetweenlands:items_plant_drop:42> : <thebetweenlands:items_crushed:55>,
+    <thebetweenlands:items_plant_drop:43> : <thebetweenlands:items_crushed:56>,
+    <thebetweenlands:items_plant_drop:44> : <thebetweenlands:items_crushed:57>,
+    <thebetweenlands:items_plant_drop:45> : <thebetweenlands:items_crushed:58>,
+    <thebetweenlands:items_plant_drop:46> : <thebetweenlands:items_crushed:59>,
+    <thebetweenlands:items_plant_drop:47> : <thebetweenlands:items_crushed:60>,
+    <thebetweenlands:tangled_root> : <thebetweenlands:items_crushed:44>,
+    <thebetweenlands:giant_root> : <thebetweenlands:items_crushed:44>,
+    <thebetweenlands:swamp_kelp_item> : <thebetweenlands:items_crushed:43>,
+    <thebetweenlands:bulb_capped_mushroom_item> : <thebetweenlands:items_crushed:24>,
+    <thebetweenlands:black_hat_mushroom> : <thebetweenlands:items_crushed:20>,
+    <thebetweenlands:flat_head_mushroom_item> : <thebetweenlands:items_crushed:30>,
+    <thebetweenlands:log_weedwood> : <thebetweenlands:items_crushed:16>,
+    //Misc
+    <thebetweenlands:items_misc:0> : <thebetweenlands:items_crushed:21>,
+    <thebetweenlands:items_misc:1> : <thebetweenlands:items_crushed:37>,
+    <thebetweenlands:items_misc:13> : <thebetweenlands:items_crushed:16>,
+    <thebetweenlands:items_misc:21> : <thebetweenlands:items_crushed:19>,
+    <thebetweenlands:items_misc:38> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:items_misc:50> : <thebetweenlands:items_crushed:61>,
+    //Scraps
+    <thebetweenlands:skull_mask> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:wights_bane> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:sludge_slicer> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:critter_cruncher> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:hag_hacker> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:voodoo_doll> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:swift_pick> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:magic_item_magnet> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:ring_of_dispersion> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:ring_of_flight> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:ring_of_power> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:ring_of_recruitment> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:ring_of_summoning> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:ring_of_gathering> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:gem_singer> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:mist_staff> : <thebetweenlands:items_crushed:48>,
+    <thebetweenlands:shadow_staff> : <thebetweenlands:items_crushed:48>,
+    //Fish Bait
+    <thebetweenlands:tiny_sludge_worm> : <thebetweenlands:fish_bait>,
+    <thebetweenlands:tiny_sludge_worm_helper> : <thebetweenlands:fish_bait>
+} as IItemStack[IItemStack];
+
+var i = 0;
+for input, output in blMortarRecipe {
+    i += 1;
+    // Roots Mortar
+    Mortar.addRecipe("blMortar_0" + i, output, [input]);
+}
+
+//-- Limestones
+Mortar.addRecipe("blMortar_Limestone", <thebetweenlands:items_misc:27> * 3, [oreLimestones]);

@@ -35,12 +35,6 @@ val doughAdd = [
     
 ] as IItemStack[];
 
-val doughRemove = [
-    <atum:emmer_dough>
-] as IItemStack[];
-
-
-
 //Add/remove items in torch OreDicts
 
 val torchAdd = [
@@ -72,7 +66,6 @@ for item in flourAdd {foodFlour.add(item);}
 for item in flourRemove {foodFlour.remove(item);}
 val foodDough = <ore:foodDough>;
 for item in doughAdd {foodDough.add(item);}
-for item in doughRemove {foodDough.remove(item);}
 val torch = <ore:torch>;
 for item in torchAdd {torch.add(item);}
 for item in torchRemove {torch.remove(item);}
