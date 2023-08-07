@@ -10,18 +10,43 @@ import loottweaker.vanilla.loot.Functions;
 
 
 
-//Replace copper and silver ingots from Mysitcal World Hut loottable (chests)
+
+//-----Table Values-----
+
+//Vanilla
+val mcDungeon = LootTweaker.getTable("minecraft:chests/simple_dungeon");
+val mcPyramid = LootTweaker.getTable("minecraft:chests/desert_pyramid");
+val mcJungle = LootTweaker.getTable("minecraft:chests/jungle_temple");
+val mcCrossing = LootTweaker.getTable("minecraft:chests/stronghold_crossing");
+val mcCorridor = LootTweaker.getTable("minecraft:chests/stronghold_corridor");
+val mcLibrary = LootTweaker.getTable("minecraft:chests/stronghold_library");
+val mcSmith = LootTweaker.getTable("minecraft:chests/village_blacksmith");
+val mcIgloo = LootTweaker.getTable("minecraft:chests/igloo_chest");
+val mcNetherBridge = LootTweaker.getTable("minecraft:chests/nether_bridge");
+val mcShaft = LootTweaker.getTable("minecraft:chests/abandoned_mineshaft");
+val mcEndCity = LootTweaker.getTable("minecraft:chests/end_city_treasure");
+//Railcraft
+val rcWorkshop = LootTweaker.getTable("railcraft:chests/village_workshop");
+//Mystical World
 val mwc = LootTweaker.getTable("mysticalworld:chests/hut");
+
+
+
+//-----Remove from Loottables-----
+
+//Replace copper and silver ingots from Mysitcal World Hut loottable (chests)
 val mwcGems = mwc.getPool("gems");
 mwcGems.removeEntry("mysticalworld:copper_ingot");
 mwcGems.removeEntry("mysticalworld:silver_ingot");
 
+
+//Item, Weight, Idk, setCount min-max, Condition, ID
 mwcGems.addItemEntry(<thermalfoundation:material:128>, 20, 0, [Functions.setCount(2, 5)], [], "replacementCopperMWC-Hut");
 mwcGems.addItemEntry(<thermalfoundation:material:130>, 8, 0, [Functions.setCount(1, 2)], [], "replacementSilverMWC-Hut");
 
 
 
-//Remove various stuff from normal Chest loottables
+//Items to remove from loottables
 val ic2Remove = [
     "copper_ingot",
     "tin_ingot",
@@ -64,7 +89,9 @@ val railcraftRemovePlus = [
     "railcraft:ingot"
 ] as string[];
 
-val mcDungeon = LootTweaker.getTable("minecraft:chests/simple_dungeon");
+
+
+//Most common chest type
 val mcDungeonIC2 = mcDungeon.getPool("ic2");
 
 for item in ic2Remove {
@@ -77,7 +104,33 @@ for item in railcraftRemovePlus {
     mcDungeonRailcraft.removeEntry(item);
 }
 
-val mcPyramid = LootTweaker.getTable("minecraft:chests/desert_pyramid");
+
+
+//Abandoned Mineshaft
+val mcShaftIC2 = mcShaft.getPool("ic2");
+
+for item in ic2Remove2 {
+    mcShaftIC2.removeEntry(item);
+}
+
+val mcShaftRailcraft = mcShaft.getPool("railcraft_resources");
+
+for item in railcraftRemove {
+    mcShaftRailcraft.removeEntry(item);
+}
+
+
+
+
+//End City chests
+val mcEndCityIC2 = mcEndCity.getPool("ic2");
+
+for item in ic2RemovePlus {
+    mcEndCityIC2.removeEntry(item);
+}
+
+
+//Desert pyramid chests
 val mcPyramidIC2 = mcPyramid.getPool("ic2");
 
 for item in ic2RemovePlus {
@@ -85,14 +138,17 @@ for item in ic2RemovePlus {
 }
 
 
-val mcJungle = LootTweaker.getTable("minecraft:chests/jungle_temple");
+
+//Jungle temple chests
 val mcJungleIC2 = mcJungle.getPool("ic2");
 
 for item in ic2RemovePlus {
     mcJungleIC2.removeEntry(item);
 }
 
-val mcCrossing = LootTweaker.getTable("minecraft:chests/stronghold_crossing");
+
+
+//Stronghold chests
 val mcCrossingIC2 = mcCrossing.getPool("ic2");
 
 for item in ic2RemovePlus {
@@ -104,7 +160,6 @@ mcCrossingRailcraft.removeEntry(
     "railcraft:chests/simple_dungeon"
 );
 
-val mcCorridor = LootTweaker.getTable("minecraft:chests/stronghold_corridor");
 val mcCorridorIC2 = mcCorridor.getPool("ic2");
 
 for item in ic2RemovePlus {
@@ -116,14 +171,15 @@ mcCorridorRailcraft.removeEntry(
     "railcraft:chests/simple_dungeon"
 );
 
-val mcLibrary = LootTweaker.getTable("minecraft:chests/stronghold_library");
 val mcLibraryIC2 = mcLibrary.getPool("ic2");
 
 for item in ic2RemovePlus {
     mcLibraryIC2.removeEntry(item);
 }
 
-val mcSmith = LootTweaker.getTable("minecraft:chests/village_blacksmith");
+
+
+//Village chests
 val mcSmithIC2 = mcSmith.getPool("ic2");
 
 for item in ic2RemovePlus {
@@ -135,23 +191,100 @@ mcSmithRailcraft.removeEntry(
     "railcraft:chests/simple_dungeon"
 );
 
-val mcIgloo = LootTweaker.getTable("minecraft:chests/igloo_chest");
 val mcIglooIC2 = mcIgloo.getPool("ic2");
 
 for item in ic2RemovePlus {
     mcIglooIC2.removeEntry(item);
 }
 
-val mcNetherBridge = LootTweaker.getTable("minecraft:chests/nether_bridge");
+val rcWorkshopRailcraft = rcWorkshop.getPool("railcraft_resources");
+
+for item in railcraftRemove {
+    rcWorkshopRailcraft.removeEntry(item);
+}
+
+
+//Nether chests
 val mcNetherBridgeIC2 = mcNetherBridge.getPool("ic2");
 
 for item in ic2Remove2 {
     mcNetherBridgeIC2.removeEntry(item);
 }
 
-val rcWorkshop = LootTweaker.getTable("railcraft:chests/village_workshop");
-val rcWorkshopRailcraft = rcWorkshop.getPool("railcraft_resources");
 
-for item in railcraftRemove {
-    rcWorkshopRailcraft.removeEntry(item);
+
+
+
+//-----Add to Loottables-----
+
+
+
+//Simple Dungeons
+val mcDungeonNew = mcDungeon.addPool("newLoot", 1, 1, 0 ,0);
+    mcDungeonNew.addItemEntry(<thermalfoundation:material:128>, 17, 0, [Functions.setCount(2, 5)], [], "copperIngot");
+    mcDungeonNew.addItemEntry(<thermalfoundation:material:129>, 13, 0, [Functions.setCount(1, 3)], [], "tinIngot");
+    mcDungeonNew.addItemEntry(<ordinarycoins:coinbronze>, 13, 0, [Functions.setCount(8, 24)], [], "bronzeCoin");
+    mcDungeonNew.addItemEntry(<ordinarycoins:coinsilver>, 17, 0, [Functions.setCount(6, 16)], [], "silverCoin");
+    mcDungeonNew.addItemEntry(<ordinarycoins:coingold>, 8, 0, [Functions.setCount(1, 3)], [], "goldCoin");
+
+
+
+//Blacksmith
+val mcSmithNew = mcSmith.addPool("newLoot", 1, 1, 0 ,0);
+    mcSmithNew.addItemEntry(<thermalfoundation:material:128>, 17, 0, [Functions.setCount(4, 8)], [], "copperIngot");
+    mcSmithNew.addItemEntry(<thermalfoundation:material:129>, 13, 0, [Functions.setCount(3, 6)], [], "tinIngot");
+    mcSmithNew.addItemEntry(<thermalfoundation:material:128>, 9, 0, [Functions.setCount(2, 4)], [], "bronzeIngot");
+
+
+
+//End City
+val mcEndCityNew = mcEndCity.addPool("newLoot", 1, 1, 0 ,0);
+    mcEndCityNew.addItemEntry(<thermalfoundation:material:135>, 9, 0, [Functions.setCount(1, 2)], [], "iridiumIngot");
+    mcEndCityNew.addItemEntry(<thermalfoundation:material:134>, 11, 0, [Functions.setCount(1, 4)], [], "platinumIngot");
+    mcEndCityNew.addItemEntry(<aquaculture:diamond_fishing_rod>, 5, 0, [], [], "diamondFishingrod");
+    mcEndCityNew.addItemEntry(<ic2:nano_helmet>.withTag({charge: 1000000.0}), 1, 0, [], [], "nanoHelmet");
+    mcEndCityNew.addItemEntry(<ic2:nano_chestplate>.withTag({charge: 1000000.0}), 1, 0, [], [], "nanoChestplate");
+    mcEndCityNew.addItemEntry(<ic2:nano_leggings>.withTag({charge: 1000000.0}), 1, 0, [], [], "nanoLeggings");
+    mcEndCityNew.addItemEntry(<ic2:nano_boots>.withTag({charge: 1000000.0}), 1, 0, [], [], "nanoBoots");
+    mcEndCityNew.addItemEntry(<ic2:nano_saber>.withTag({charge: 1000000.0}), 2, 0, [], [], "nanoSaber");
+    mcEndCityNew.addItemEntry(<ordinarycoins:coingold>, 16, 0, [Functions.setCount(4, 8)], [], "goldCoin");
+    mcEndCityNew.addItemEntry(<ordinarycoins:coinplatinum>, 8, 0, [Functions.setCount(2, 4)], [], "platinumCoin");
+
+
+
+//Various Structures
+val tableArray = [
+    mcPyramid,
+    mcJungle,
+    mcCrossing,
+    mcCorridor,
+    mcLibrary,
+    mcNetherBridge,
+    mcShaft
+] as LootTable[];
+
+val poolArray = [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+] as LootPool[];
+
+for i, item in tableArray {
+    poolArray[i] = item.addPool("newLoot", 1, 1, 0 ,0);
+}
+
+
+
+//Adding to arrays
+for item in poolArray {
+    item.addItemEntry(<thermalfoundation:material:128>, 17, 0, [Functions.setCount(2, 5)], [], "copperIngot");
+    item.addItemEntry(<thermalfoundation:material:129>, 13, 0, [Functions.setCount(1, 3)], [], "tinIngot");
+    item.addItemEntry(<thermalfoundation:material:128>, 9, 0, [Functions.setCount(1, 3)], [], "bronzeIngot");
+    item.addItemEntry(<ordinarycoins:coinbronze>, 24, 0, [Functions.setCount(12, 32)], [], "bronzeCoin");
+    item.addItemEntry(<ordinarycoins:coinsilver>, 28, 0, [Functions.setCount(8, 24)], [], "silverCoin");
+    item.addItemEntry(<ordinarycoins:coingold>, 14, 0, [Functions.setCount(2, 7)], [], "goldCoin");
 }
