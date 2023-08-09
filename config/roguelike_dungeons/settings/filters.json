@@ -1,6 +1,8 @@
 {
 	"name" : "builtin:filters",
 	"filters" : [
-		{"level" : 3, "name" : "vine"}
+		{"level" : 3, "name" : "vine"},
+		{"level" : 3, "name" : "cobweb"},
+		{"level" : [2, 3], "name" : "mud"}
 	]
 }

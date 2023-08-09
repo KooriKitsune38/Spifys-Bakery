@@ -1,16 +1,8 @@
 {
 	"name" : "builtin:main",
 	"exclusive" : false,
-	"criteria" : {
-	},
+	"criteria" : {},
 	"inherit" : [
-		"builtin:tower",
-		"builtin:layout",
-		"builtin:rooms",
-		"builtin:segments",
-		"builtin:theme",
-		"builtin:loot",
-		"builtin:filters",
-		"builtin:spawners"
+		"spify:spawners"
 	]
 }

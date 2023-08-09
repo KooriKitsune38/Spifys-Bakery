@@ -1,0 +1,13 @@
+{
+  "name" : "spify:swamp",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"SWAMP"
+		]
+	},
+  "inherit" : [
+    "builtin:swamp",
+    "builtin:main"
+  ]
+}

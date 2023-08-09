@@ -1,0 +1,16 @@
++--------------------------------------------------+-------------------+----------------------+
+| Closest found biome locations around the center point x = 5314, z = -1466                   |
++--------------------------------------------------+-------------------+----------------------+
+| Registry name                                    | Name              | Closest location     |
++--------------------------------------------------+-------------------+----------------------+
+| openterraingenerator:overworld_beach             | Beach             | x =  5324, z = -1455 |
+| openterraingenerator:overworld_deep_ocean        | Deep Ocean        | x = -1465, z = -1466 |
+| openterraingenerator:overworld_forestsakura      | ForestSakura      | x =  5373, z = -1528 |
+| openterraingenerator:overworld_forestsakurahills | ForestSakuraHills | x =  5399, z = -1551 |
+| openterraingenerator:overworld_jungleedge        | JungleEdge        | x =  5314, z = -1466 |
+| openterraingenerator:overworld_junglehighlands   | JungleHighlands   | x =  5307, z = -1473 |
+| openterraingenerator:overworld_jungleplateau     | JunglePlateau     | x =  5225, z = -1535 |
+| openterraingenerator:overworld_ocean             | Ocean             | x =  5351, z = -1428 |
++--------------------------------------------------+-------------------+----------------------+
+| Registry name                                    | Name              | Closest location     |
++--------------------------------------------------+-------------------+----------------------+

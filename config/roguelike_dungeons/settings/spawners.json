@@ -1,5 +1,5 @@
 {
-	"name" : "builtin:spawners",
+	"name" : "spify:spawners",
 	"spawners" : [
 		{
 			"type" : "ZOMBIE",

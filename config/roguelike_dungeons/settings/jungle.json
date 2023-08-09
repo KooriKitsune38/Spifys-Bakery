@@ -1,0 +1,13 @@
+{
+  "name" : "spify:jungle",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"JUNGLE"
+		]
+	},
+  "inherit" : [
+    "builtin:jungle",
+    "builtin:main"
+  ]
+}

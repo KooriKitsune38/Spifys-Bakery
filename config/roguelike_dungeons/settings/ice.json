@@ -1,0 +1,13 @@
+{
+  "name" : "spify:ice",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"SNOWY"
+		]
+	},
+  "inherit" : [
+    "builtin:ice",
+    "builtin:main"
+  ]
+}

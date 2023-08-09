@@ -1,0 +1,13 @@
+{
+  "name" : "spify:desert",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"SANDY"
+		]
+	},
+  "inherit" : [
+    "builtin:desert",
+    "builtin:main"
+  ]
+}

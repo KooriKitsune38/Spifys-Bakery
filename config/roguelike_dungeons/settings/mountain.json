@@ -1,0 +1,13 @@
+{
+  "name" : "spify:mountain",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"MOUNTAIN"
+		]
+	},
+  "inherit" : [
+    "builtin:mountain",
+    "builtin:main"
+  ]
+}

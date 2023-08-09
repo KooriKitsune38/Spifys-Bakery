@@ -1,0 +1,13 @@
+{
+  "name" : "spify:forest",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"FOREST"
+		]
+	},
+  "inherit" : [
+    "builtin:forest",
+    "builtin:main"
+  ]
+}

@@ -57,7 +57,7 @@
 				{"data" : {"name" : "minecraft:wheat"}, "weight" : 1},
 				{"data" : {"name" : "minecraft:beetroot_seeds"}, "weight" : 1},
 				{"data" : {"name" : "minecraft:sapling"}, "weight" : 1},
-				{"data" : {"name" : "minecraft:torch", "min" : 5, "max" : 20}, "weight" : 3}
+				{"data" : {"name" : "realistictorches:torch_lit", "min" : 5, "max" : 20}, "weight" : 3}
 			],
 			"each" : true,
 			"quantity" : 2
@@ -186,7 +186,7 @@
 				{"data" : {"name" : "minecraft:string"}, "weight" : 1},
 				{"data" : {"name" : "minecraft:snowball"}, "weight" : 1},
 				{"data" : {"name" : "minecraft:feather"}, "weight" : 1},
-				{"data" : {"name" : "minecraft:torch", "min" : 1, "max" : 6}, "weight" : 3}
+				{"data" : {"name" : "realistictorches:torch_lit", "min" : 1, "max" : 6}, "weight" : 3}
 			],
 			"each" : true,
 			"quantity" : 4

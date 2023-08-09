@@ -1,0 +1,13 @@
+{
+  "name" : "spify:grassland",
+	"exclusive" : true,
+  "criteria" : {
+		"biomeTypes" : [
+			"PLAINS"
+		]
+	},
+  "inherit" : [
+    "builtin:grassland",
+    "builtin:main"
+  ]
+}
