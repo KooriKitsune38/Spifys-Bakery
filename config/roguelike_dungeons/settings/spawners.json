@@ -1,0 +1,108 @@
+{
+	"name" : "builtin:spawners",
+	"spawners" : [
+		{
+			"type" : "ZOMBIE",
+			"potentials" : [
+				{"name" : "minecraft:zombie"},
+				{"name" : "minecraft:witch"}
+			],
+			"level" : [0, 1]
+		},
+		{
+			"type" : "ZOMBIE",
+			"potentials" : [
+				{"name" : "thebetweenlands:crypt_crawler"},
+				{"name" : "minecraft:witch"}
+			],
+			"level" : [2]
+		},
+		{
+			"type" : "ZOMBIE",
+			"potentials" : [
+				{"name" : "thebetweenlands:crypt_crawler"},
+				{"name" : "thebetweenlands:wild_emberling"}
+			],
+			"level" : [3]
+		},
+		{
+			"type" : "ZOMBIE",
+			"potentials" : [
+				{"name" : "thaumcraft:cultistknight"}
+			],
+			"level" : [4]
+		},
+		{
+			"type" : "SKELETON",
+			"potentials" : [
+				{"name" : "minecraft:skeleton"}
+			],
+			"level" : [0, 1]
+		},
+		{
+			"type" : "SKELETON",
+			"potentials" : [
+				{"name" : "minecraft:stray"}
+			],
+			"level" : [1, 2]
+		},
+		{
+			"type" : "SKELETON",
+			"potentials" : [
+				{"name" : "thebetweenlands:emberling_shaman"}
+			],
+			"level" : [3]
+		},
+		{
+			"type" : "SKELETON",
+			"potentials" : [
+				{"name" : "thaumcraft:cultistcleric"}
+			],
+			"level" : [4]
+		},
+		{
+			"type" : "SPIDER",
+			"potentials" : [
+				{"name" : "minecraft:spider"}
+			],
+			"level" : [0, 1, 2]
+		},
+		{
+			"type" : "SPIDER",
+			"potentials" : [
+				{"name" : "thebetweenlands:termite"}
+			],
+			"level" : [2, 3]
+		},
+		{
+			"type" : "SPIDER",
+			"potentials" : [
+				{"name" : "thaumcraft:mindspider"}
+			],
+			"level" : [4]
+		},
+		{
+			"type" : "ENDERMAN",
+			"potentials" : [
+				{"name" : "thebetweenlands:wight"},
+				{"name" : "minecraft:enderman"}
+			],
+			"level" : [0, 1, 2, 3, 4]
+		},
+		{
+			"type" : "CREEPER",
+			"potentials" : [
+				{"name" : "thebetweenlands:gas_cloud"},
+				{"name" : "thebetweenlands:swarm"}
+			],
+			"level" : [0, 1, 2, 3, 4]
+		},
+		{
+			"type" : "BLAZE",
+			"potentials" : [
+				{"name" : "thaumcraft:taintswarm"}
+			],
+			"level" : [0, 1, 2, 3, 4]
+		}
+	]
+}

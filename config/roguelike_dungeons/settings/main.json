@@ -1,0 +1,16 @@
+{
+	"name" : "builtin:main",
+	"exclusive" : false,
+	"criteria" : {
+	},
+	"inherit" : [
+		"builtin:tower",
+		"builtin:layout",
+		"builtin:rooms",
+		"builtin:segments",
+		"builtin:theme",
+		"builtin:loot",
+		"builtin:filters",
+		"builtin:spawners"
+	]
+}

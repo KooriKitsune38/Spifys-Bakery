@@ -1,0 +1,6 @@
+{
+	"name" : "builtin:filters",
+	"filters" : [
+		{"level" : 3, "name" : "vine"}
+	]
+}

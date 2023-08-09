@@ -1,0 +1,11 @@
+{
+	"name" : "builtin:loot",
+	"inherit" : [
+		"builtin:loot0",
+		"builtin:loot1",
+		"builtin:loot2",
+		"builtin:loot3",
+		"builtin:loot4",
+		"builtin:loot_all"
+	]
+}
