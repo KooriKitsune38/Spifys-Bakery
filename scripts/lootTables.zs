@@ -29,7 +29,13 @@ val mcEndCity = LootTweaker.getTable("minecraft:chests/end_city_treasure");
 val rcWorkshop = LootTweaker.getTable("railcraft:chests/village_workshop");
 //Mystical World
 val mwc = LootTweaker.getTable("mysticalworld:chests/hut");
-
+//Aether
+val aetherBronze = lootTwekaer.getTable("aether_legacy:chests/bronze_dungeon_chest");
+val aetherSilver = lootTwekaer.getTable("aether_legacy:chests/silver_dungeon_chest");
+val aetherGold = lootTwekaer.getTable("aether_legacy:chests/gold_dungeon_chest");
+val aetherBronzeReward = lootTwekaer.getTable("aether_legacy:chests/bronze_dungeon_reward");
+val aetherSilverReward = lootTwekaer.getTable("aether_legacy:chests/silver_dungeon_reward");
+val aetherGoldReward = lootTwekaer.getTable("aether_legacy:chests/gold_dungeon_reward");
 
 
 //-----Remove from Loottables-----
@@ -211,13 +217,31 @@ for item in ic2Remove2 {
     mcNetherBridgeIC2.removeEntry(item);
 }
 
-
+//Aether
+for item in [aetherBronze, aetherSilver, aetherGold] {
+    pool = item.getPool("main");
+    pool.removeEntry("aether_legacy:ambrosium_torch");
+}
 
 
 
 //-----Add to Loottables-----
 
+//Aether
+var aetherBronzeRewardNew = aetherBronzeReward.addPool("coinsLoot", 1, 1, 0, 0);
+    aetherBronzeRewardNew.addItemEntry(<ordinarycoins:coinbronze>, 9, 0, [Functions.setCount(18, 48)], [], "bronzeCoin");
+    aetherBronzeRewardNew.addItemEntry(<ordinarycoins:coinsilver>, 15, 0, [Functions.setCount(10, 24)], [], "silverCoin");
+    aetherBronzeRewardNew.addItemEntry(<ordinarycoins:coingold>, 18, 0, [Functions.setCount(3, 8)], [], "goldCoin");
 
+var aetherSilverRewardNew = aetherSilverReward.addPool("coinsLoot", 1, 1, 0, 0);
+    aetherSilverRewardNew.addItemEntry(<ordinarycoins:coinbronze>, 9, 0, [Functions.setCount(24, 48)], [], "bronzeCoin");
+    aetherSilverRewardNew.addItemEntry(<ordinarycoins:coinsilver>, 15, 0, [Functions.setCount(22, 30)], [], "silverCoin");
+    aetherSilverRewardNew.addItemEntry(<ordinarycoins:coingold>, 18, 0, [Functions.setCount(4, 14)], [], "goldCoin");
+
+var aetherGoldRewardNew = aetherGoldReward.addPool("coinsLoot", 1, 1, 0, 0);
+    aetherGoldRewardNew.addItemEntry(<ordinarycoins:coinbronze>, 9, 0, [Functions.setCount(24, 52)], [], "bronzeCoin");
+    aetherGoldRewardNew.addItemEntry(<ordinarycoins:coinsilver>, 15, 0, [Functions.setCount(28, 48)], [], "silverCoin");
+    aetherGoldRewardNew.addItemEntry(<ordinarycoins:coingold>, 18, 0, [Functions.setCount(8, 16)], [], "goldCoin");
 
 //Simple Dungeons
 val mcDungeonNew = mcDungeon.addPool("newLoot", 1, 1, 0 ,0);
@@ -260,7 +284,10 @@ val tableArray = [
     mcCorridor,
     mcLibrary,
     mcNetherBridge,
-    mcShaft
+    mcShaft,
+    aetherBronze,
+    aetherGold,
+    aetherSilver
 ] as LootTable[];
 
 val poolArray = [
@@ -277,7 +304,6 @@ for i, item in tableArray {
     poolArray[i] = item.addPool("newLoot", 1, 1, 0 ,0);
     scripts.coinsLoot.addCoins(item);
 }
-
 
 
 //Adding to arrays
