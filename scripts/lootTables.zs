@@ -275,6 +275,7 @@ val poolArray = [
 
 for i, item in tableArray {
     poolArray[i] = item.addPool("newLoot", 1, 1, 0 ,0);
+    scripts.coinsLoot.addCoins(item);
 }
 
 
@@ -284,7 +285,4 @@ for item in poolArray {
     item.addItemEntry(<thermalfoundation:material:128>, 17, 0, [Functions.setCount(2, 5)], [], "copperIngot");
     item.addItemEntry(<thermalfoundation:material:129>, 13, 0, [Functions.setCount(1, 3)], [], "tinIngot");
     item.addItemEntry(<thermalfoundation:material:128>, 9, 0, [Functions.setCount(1, 3)], [], "bronzeIngot");
-    item.addItemEntry(<ordinarycoins:coinbronze>, 24, 0, [Functions.setCount(12, 32)], [], "bronzeCoin");
-    item.addItemEntry(<ordinarycoins:coinsilver>, 28, 0, [Functions.setCount(8, 24)], [], "silverCoin");
-    item.addItemEntry(<ordinarycoins:coingold>, 14, 0, [Functions.setCount(2, 7)], [], "goldCoin");
 }
